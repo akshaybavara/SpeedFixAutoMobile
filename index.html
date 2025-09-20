@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedFix Automobile - Professional Car Workshop in Bengaluru</title>
+    <link rel="icon" type="image/x-icon"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACgUlEQVR4nO2ZTWsUQRCGH/bqV1CyiYqiIMYPvAj+CBFyiqKo6OjFaAIRRC/qj9BLRH+ARNQYop7Ff5DEqLfgSRTEJApqViMF70AxzLizQXp7YF4YZmdrpruf7eqq2h6oVctrBzACvATeAt+A78AH4DlwHRggYm0H7gMtYLXNMQf0EKEGgSUN8ifwEDipX34dsB/4LPsM0EuEGgV+a5ATwO6MvQnMyj4bK8SgIMydrubYDWLOuZNdR7kmUnfKg+hzEG90HaUeOHfKqk+D7xSipxshtqWFnV0T/cC8IOxcFqJXMxg0NI9ooBadvDYod6QQBlUWYkbPWZ4Jphfq9FTm+wawINtQybaaLqrZMU1AvVene3NsN2WbLNFO0wWETzrbDxFMy+p0fY5tK/ALWFFkKzMT5o6H9NnKmWBKw+7GAvuk7LdKQvSrLbteJKDeqdMDBfajsn8Bbmdmxkc1H5oHHFgwPVGnZwrsjcwCXtEsDRVAmE53Y7FfVKfP/nFPQzPzVCC++s3LLxOyDRO4ULROfwCbSty/TdFswa0Jrz1Kru0CxH/VBVftjnX4bENJs8hVx6kARJGuqb2vHVQCUUK01O4xIoMoyi3ZNZG6k7V7hcggxhQApoCzwEGBWQWwTyH2kTJ/6k5BZiJxEDdKQLTbdFh1eeWeypnoZiJ1k1HlmcfKF0uqzeaV7IZDhti1zMQf4BIRKakhIlFSQ0SipIaIREkNEYmSGiISJTVEJDq/xirWqt9odMT9iaksBNpTssHdocIQuDepO6kwhN9s3kKFIUyvNdDLVBjCdMK9c7Atl83ALuBulSBSpYPOHrbXeo6K6TjwSi9RPmrn+3C3B1WLiukvogY37aQ/x2EAAAAASUVORK5CYII=">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes wave {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(5deg);
+            }
+
+            50% {
+                transform: rotate(0deg);
+            }
+
+            75% {
+                transform: rotate(-5deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #3b82f6 !important;
+            animation: pulse 1.5s infinite;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            animation: wave 10s ease-in-out infinite;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .wave {
+            animation: wave 8s ease-in-out infinite;
+        }
+
+        .btn-hover {
+            transition: all 0.3s;
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon-hover {
+            transition: all 0.3s;
+        }
+
+        .icon-hover:hover {
+            transform: rotate(15deg) scale(1.2);
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="tool" class="h-8 w-8 text-blue-600"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">SpeedFix Automobile</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#services"
+                        class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Services</a>
+                    <a href="#about" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="#shorts" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Shorts</a>
+                    <a href="#offers" class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Offers</a>
+                    <a href="#reviews"
+                        class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Reviews</a>
+                    <a href="#contact"
+                        class="text-gray-900 hover:text-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
+                    <a href="tel:+917078013093"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center btn-hover pulse">
+                        <i data-feather="phone" class="w-4 h-4 mr-2"></i> Call Now
+                    </a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
+                        <i data-feather="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Home</a>
+                <a href="#services"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Services</a>
+                <a href="#offer"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Offer</a>
+                <a href="#about"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">About</a>
+                <a href="#shorts"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Shorts</a>
+                <a href="#reviews"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Reviews</a>
+                <a href="#contact"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Contact</a>
+                <a href="tel:+917078013093"
+                    class="block w-full bg-blue-600 text-white px-4 py-2 rounded-md text-base font-medium text-center mt-2">
+                    <i data-feather="phone" class="w-4 h-4 mr-2 inline"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile menu -->
+    <div class="hidden md:hidden" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#home"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Home</a>
+            <a href="#services"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Services</a>
+            <a href="#about"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">About</a>
+            <a href="#reviews"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Reviews</a>
+            <a href="#contact"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50">Contact</a>
+            <a href="tel:+917078013093"
+                class="block w-full bg-blue-600 text-white px-4 py-2 rounded-md text-base font-medium text-center mt-2">
+                <i data-feather="phone" class="w-4 h-4 mr-2 inline"></i> Call Now
+            </a>
+        </div>
+    </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Expert Car Care Services in Bengaluru
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8">Your trusted partner for all automobile repair and maintenance
+                        needs.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://wa.me/919411104063"
+                            class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-md font-medium flex items-center btn-hover">
+                            <i data-feather="message-circle" class="w-5 h-5 mr-2"></i> WhatsApp Us
+                        </a>
+                        <a href="tel:+917078013093"
+                            class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-md font-medium flex items-center btn-hover">
+                            <i data-feather="phone" class="w-5 h-5 mr-2"></i> Call Now
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <img src="images/automotive.jpg" alt="Car Service" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ✅ Latest Offers -->
+    <section id="offers" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-12" data-aos="fade-up">🔥 Latest Offers</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Offer Card -->
+                <div class="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition" data-aos="fade-up">
+                    <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Limited</span>
+                    <h3 class="text-xl font-bold mt-4">Free Car Wash</h3>
+                    <p class="text-gray-600 mt-2">Get a free car wash with every full service booking this month.</p>
+                    <button class="mt-4 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">Book Now</button>
+                </div>
+                <!-- Offer Card -->
+                <div class="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Special</span>
+                    <h3 class="text-xl font-bold mt-4">20% Off Oil Change</h3>
+                    <p class="text-gray-600 mt-2">Save big on oil change services. Valid till end of month.</p>
+                    <button class="mt-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Claim
+                        Offer</button>
+                </div>
+                <!-- Offer Card -->
+                <div class="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">New</span>
+                    <h3 class="text-xl font-bold mt-4">Free Pickup & Drop</h3>
+                    <p class="text-gray-600 mt-2">Enjoy hassle-free car servicing with free pickup & delivery.</p>
+                    <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Schedule
+                        Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Professional Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive solutions to keep your vehicle running
+                    smoothly</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md service-card transition duration-300" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="text-blue-600 mb-4 icon-hover">
+                        <i data-feather="settings" class="w-10 h-10 floating"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">General Car Service</h3>
+                    <p class="text-gray-600">Complete maintenance including oil change, filter replacement, and thorough
+                        inspection.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md service-card transition duration-300" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="text-blue-600 mb-4 icon-hover">
+                        <i data-feather="tool" class="w-10 h-10 floating"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Denting & Painting</h3>
+                    <p class="text-gray-600">Professional dent removal and high-quality painting to restore your car's
+                        original look.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md service-card transition duration-300" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="text-blue-600 mb-4 icon-hover">
+                        <i data-feather="droplet" class="w-10 h-10 floating"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Car Washing</h3>
+                    <p class="text-gray-600">Premium cleaning services including exterior wash, interior detailing, and
+                        waxing.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md service-card transition duration-300" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="text-blue-600 mb-4 icon-hover">
+                        <i data-feather="cpu" class="w-10 h-10 floating"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Mechanical Repairs</h3>
+                    <p class="text-gray-600">Expert diagnosis and repair of engine, transmission, brakes, and suspension
+                        systems.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md service-card transition duration-300" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="text-blue-600 mb-4 icon-hover">
+                        <i data-feather="battery" class="w-10 h-10 floating"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Electrical Work</h3>
+                    <p class="text-gray-600">Comprehensive electrical system services including battery, alternator, and
+                        wiring repairs.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md service-card transition duration-300" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="text-blue-600 mb-4 icon-hover">
+                        <i data-feather="shield" class="w-10 h-10 floating"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">AC Service</h3>
+                    <p class="text-gray-600">Professional air conditioning system maintenance, repair, and gas
+                        refilling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <img src="http://static.photos/workspace/1024x576/1" alt="SpeedFix Workshop"
+                        class="rounded-lg shadow-xl">
+                </div>
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">About SpeedFix Automobile</h2>
+                    <p class="text-gray-600 mb-6">Founded in 2025, SpeedFix Automobile has grown to become one of
+                        Bengaluru's most trusted car service centers. Our team of certified technicians brings years of
+                        experience and a passion for automotive excellence.</p>
+                    <p class="text-gray-600 mb-8">We pride ourselves on using only genuine parts and the latest
+                        diagnostic equipment to ensure your vehicle receives the best possible care. Our commitment to
+                        quality and customer satisfaction sets us apart.</p>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i data-feather="check-circle" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <span class="text-gray-700">Certified Technicians</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i data-feather="check-circle" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <span class="text-gray-700">Genuine Parts</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i data-feather="check-circle" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <span class="text-gray-700">Modern Equipment</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i data-feather="check-circle" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <span class="text-gray-700">Warranty on Services</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-center text-gray-900 mb-10" data-aos="fade-up">Meet Our Expert Team
+                </h3>
+                <div class="swiper teamSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                                <img src="images/anshul.jpg" alt="Team Member"
+                                    class="w-32 h-32 rounded-full mx-auto mb-4">
+                                <h4 class="text-xl font-semibold">Anshul Kumar</h4>
+                                <p class="text-blue-600 mb-3">Head Mechanic</p>
+                                <p class="text-gray-600">5+ years experience in automotive repair and diagnostics</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                                <img src="images/sanky.jpg" alt="Team Member"
+                                    class="w-32 h-32 rounded-full mx-auto mb-4">
+                                <h4 class="text-xl font-semibold">Shanky Dhariwal</h4>
+                                <p class="text-blue-600 mb-3">Painting Specialist</p>
+                                <p class="text-gray-600">Expert in color matching and premium finish applications</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                                <img src="images/user.png" alt="Team Member"
+                                    class="w-32 h-32 rounded-full mx-auto mb-4">
+                                <h4 class="text-xl font-semibold">Vikram Patel</h4>
+                                <p class="text-blue-600 mb-3">Denting Expert</p>
+                                <p class="text-gray-600">Specializes in precision dent removal without paint damage</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                                <img src="images/user.png" alt="Team Member"
+                                    class="w-32 h-32 rounded-full mx-auto mb-4">
+                                <h4 class="text-xl font-semibold">Ananya Reddy</h4>
+                                <p class="text-blue-600 mb-3">Service Advisor</p>
+                                <p class="text-gray-600">Your point of contact for all service needs and queries</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Shorts Section -->
+    <section id="shorts" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Workshop Highlights</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">See our team in action through these short videos</p>
+            </div>
+
+            <div class="swiper youtubeSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="aspect-w-9 aspect-h-16 rounded-lg overflow-hidden shadow-lg">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/YOUTUBE_SHORT_ID_1"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="aspect-w-9 aspect-h-16 rounded-lg overflow-hidden shadow-lg">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/YOUTUBE_SHORT_ID_2"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="aspect-w-9 aspect-h-16 rounded-lg overflow-hidden shadow-lg">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/YOUTUBE_SHORT_ID_3"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="aspect-w-9 aspect-h-16 rounded-lg overflow-hidden shadow-lg">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/YOUTUBE_SHORT_ID_4"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Trusted by hundreds of satisfied car owners in
+                    Bengaluru</p>
+            </div>
+
+            <div class="swiper reviewSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-lg shadow-md">
+                            <div class="flex items-center mb-4">
+                                <div class="flex-shrink-0">
+                                    <img src="http://static.photos/people/200x200/5" alt="Customer"
+                                        class="w-12 h-12 rounded-full">
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold">Arjun Mehta</h4>
+                                    <div class="flex text-yellow-400">
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"Excellent service! My car's engine was making strange noises and
+                                SpeedFix diagnosed and fixed the issue in just a few hours. Very professional and
+                                reasonably priced."</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-lg shadow-md">
+                            <div class="flex items-center mb-4">
+                                <div class="flex-shrink-0">
+                                    <img src="http://static.photos/people/200x200/6" alt="Customer"
+                                        class="w-12 h-12 rounded-full">
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold">Neha Gupta</h4>
+                                    <div class="flex text-yellow-400">
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"Had a major dent on my car door after an accident. SpeedFix did an
+                                amazing job with the repair - you can't even tell there was any damage. Highly
+                                recommended!"</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-lg shadow-md">
+                            <div class="flex items-center mb-4">
+                                <div class="flex-shrink-0">
+                                    <img src="http://static.photos/people/200x200/7" alt="Customer"
+                                        class="w-12 h-12 rounded-full">
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold">Rahul Sharma</h4>
+                                    <div class="flex text-yellow-400">
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"Regular customer here. Their periodic maintenance service keeps my
+                                car running like new. Always transparent about costs and never push unnecessary
+                                services."</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-lg shadow-md">
+                            <div class="flex items-center mb-4">
+                                <div class="flex-shrink-0">
+                                    <img src="http://static.photos/people/200x200/8" alt="Customer"
+                                        class="w-12 h-12 rounded-full">
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold">Deepika Nair</h4>
+                                    <div class="flex text-yellow-400">
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"The best car wash service in town! They pay attention to every
+                                detail and my car looks showroom fresh every time. Worth every rupee."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map & Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Visit Our Workshop</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We're conveniently located in Bengaluru</p>
+            </div>
+
+            <div class="md:flex">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-8" data-aos="fade-right">
+                    <div class="h-full rounded-lg overflow-hidden shadow-xl">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.12345!2d77.6805513!3d13.1839587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1ddf%3A0xabc123!2sDevanahalli!5e0!3m2!1sen!2sin!4v1695245650000"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 md:pl-8" data-aos="fade-left">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h3>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                    <i data-feather="map-pin" class="w-5 h-5 text-blue-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900">Address</h4>
+                                    <p class="text-gray-600">SY No. 104/8 Airport, Galamma Circle, Begur Village, Jala
+                                        Hobli, Bengaluru-562149</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                    <i data-feather="phone" class="w-5 h-5 text-blue-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900">Phone</h4>
+                                    <p class="text-gray-600">+91 7078013093</p>
+                                    <p class="text-gray-600">+91 9411104063 (WhatsApp)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                    <i data-feather="mail" class="w-5 h-5 text-blue-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900">Email</h4>
+                                    <p class="text-gray-600">speedfix.automobile@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-blue-100 p-2 rounded-full">
+                                    <i data-feather="clock" class="w-5 h-5 text-blue-600"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900">Working Hours</h4>
+                                    <p class="text-gray-600">Monday to Saturday: 9:00 AM - 7:00 PM</p>
+                                    <p class="text-red-600">Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="text-lg font-medium text-gray-900 mb-4">Quick Contact Form</h4>
+                            <form id="contactForm" class="space-y-4">
+                                <div>
+                                    <input type="text" id="name" placeholder="Your Name"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <input type="email" id="email" placeholder="Your Email"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <input type="tel" id="phone" placeholder="Your Phone Number"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <textarea id="message" rows="3" placeholder="Your Message"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium flex items-center justify-center btn-hover pulse">
+                                    <i data-feather="send" class="w-5 h-5 mr-2"></i> Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">SpeedFix Automobile</h3>
+                    <p class="text-gray-400">Your trusted partner for all automobile repair and maintenance needs in
+                        Bengaluru.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white icon-hover">
+                            <i data-feather="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white icon-hover">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white icon-hover">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white icon-hover">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#reviews" class="text-gray-400 hover:text-white">Reviews</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Car Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Denting & Painting</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Car Washing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Mechanical Repairs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">AC Service</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="w-4 h-4 mt-1 mr-2"></i>
+                            <span>SY No. 104/8 Airport, Begur, Bengaluru-562149</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="w-4 h-4 mr-2"></i>
+                            <span>+91 7078013093</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="w-4 h-4 mr-2"></i>
+                            <span>speedfix.automobile@gmail.com</span>
+                        </li>
+                    </ul>
+                   <div class="mt-4">
+  <h4 class="text-lg font-semibold mb-4">Scan to Connect</h4>
+  <div class="flex gap-6">
+    <!-- WhatsApp QR -->
+    <div class="text-center">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/919411104063"
+           alt="WhatsApp QR Code" class="w-32 h-32 bg-white p-2 rounded shadow">
+      <p class="text-sm text-gray-500 mt-2">Chat on WhatsApp</p>
+    </div>
+
+     <!-- Google Maps QR -->
+    <div class="text-center">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.google.com/maps?q=13.1839587,77.6805513"
+           alt="Google Maps QR Code" class="w-32 h-32 bg-white p-2 rounded shadow">
+      <p class="text-sm text-gray-500 mt-2">Find us on Maps</p>
+    </div>
+  </div>
+</div>
+
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 SpeedFix Automobile. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize AOS with more animations
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out-back',
+            once: false,
+            mirror: true,
+            anchorPlacement: 'top-bottom'
+        });
+
+        // Add scroll animations
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll('.service-card, .btn-hover, .icon-hover');
+
+            elements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    el.style.transform = 'translateY(-5px)';
+                });
+                el.addEventListener('mouseleave', () => {
+                    el.style.transform = '';
+                });
+            });
+
+            // Parallax effect for hero image
+            window.addEventListener('scroll', function () {
+                const heroImg = document.querySelector('#home img');
+                const scrollPosition = window.pageYOffset;
+                heroImg.style.transform = 'translateY(' + scrollPosition * 0.2 + 'px)';
+            });
+        });
+
+        // Initialize mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Initialize team swiper
+        const teamSwiper = new Swiper('.teamSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+            }
+        });
+
+        // Initialize YouTube shorts swiper
+        const youtubeSwiper = new Swiper('.youtubeSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+            }
+        });
+
+        // Initialize review swiper
+        const reviewSwiper = new Swiper('.reviewSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                }
+            }
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            const whatsappUrl = `https://wa.me/919411104063?text=Name:%20${encodeURIComponent(name)}%0APhone:%20${encodeURIComponent(phone)}%0AMessage:%20${encodeURIComponent(message)}`;
+
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Feather icons replacement
+        feather.replace();
+    </script>
+</body>
+
+</html>
